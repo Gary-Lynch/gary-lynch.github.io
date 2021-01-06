@@ -1,8 +1,8 @@
 name: "my-blog"
 title: "My Blog"
 description: |
-  My Blog
-output_dir: "_site"
+  Personal blog: Data analytics showcase
+output_dir: "."
 navbar:
   right:
     - text: "Home"
