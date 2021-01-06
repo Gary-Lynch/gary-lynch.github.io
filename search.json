@@ -14,8 +14,8 @@
       "description": "Welcome to the website. I hope you enjoy it!\n",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-01-06T22:09:03+00:00"
+      "last_modified": "2021-01-06T23:35:58+00:00"
     }
   ],
-  "collections": []
+  "collections": ["posts/posts.json"]
 }
