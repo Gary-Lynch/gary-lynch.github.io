@@ -86,29 +86,33 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Blog - Gary Lynch: My Website1</title>
+  <title>Blog - Gary Lynch: What I read in 2020: My ratings versus Goodreads</title>
   
-  <meta property="description" itemprop="description" content="Welcome to the website. I hope you enjoy it!"/>
+  <meta property="description" itemprop="description" content="How well do my book ratings compare to the Goodreads community ratings?"/>
   
   
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-01-01"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-01-01"/>
+  <meta name="article:author" content="Gary Lynch"/>
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Blog - Gary Lynch: My Website1"/>
+  <meta property="og:title" content="Blog - Gary Lynch: What I read in 2020: My ratings versus Goodreads"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Welcome to the website. I hope you enjoy it!"/>
+  <meta property="og:description" content="How well do my book ratings compare to the Goodreads community ratings?"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Blog - Gary Lynch"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Blog - Gary Lynch: My Website1"/>
-  <meta property="twitter:description" content="Welcome to the website. I hope you enjoy it!"/>
+  <meta property="twitter:title" content="Blog - Gary Lynch: What I read in 2020: My ratings versus Goodreads"/>
+  <meta property="twitter:description" content="How well do my book ratings compare to the Goodreads community ratings?"/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site","listing"]}},"value":[{"type":"character","attributes":{},"value":["My Website1"]},{"type":"character","attributes":{},"value":["Welcome to the website. I hope you enjoy it!\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"character","attributes":{},"value":["posts"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["What I read in 2020: My ratings versus Goodreads"]},{"type":"character","attributes":{},"value":["How well do my book ratings compare to the Goodreads community ratings? \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Gary Lynch"]},{"type":"character","attributes":{},"value":["https://gary-lynch.github.io/"]},{"type":"character","attributes":{},"value":["Olytico"]},{"type":"character","attributes":{},"value":["https://gary-lynch.github.io/"]}]}]},{"type":"character","attributes":{},"value":["01-01-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -1989,6 +1993,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
   
   <!--/radix_placeholder_distill-->
+  <script src="site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+  <link href="site_libs/bokehjs-0.12.5/bokeh.min.css" rel="stylesheet" />
+  <link href="site_libs/bokehjs-0.12.5/loader.css" rel="stylesheet" />
+  <script src="site_libs/bokehjs-0.12.5/bokeh.min.js"></script>
+  <script src="site_libs/rbokeh-binding-0.5.1/rbokeh.js"></script>
+  <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+  <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
   <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
   <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
@@ -2000,12 +2011,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 </head>
 
-<body class="layout-listing">
+<body>
 
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"My Website1","description":"Welcome to the website. I hope you enjoy it!","authors":[]}
+{"title":"What I read in 2020: My ratings versus Goodreads","description":"How well do my book ratings compare to the Goodreads community ratings?","authors":[{"author":"Gary Lynch","authorURL":"https://gary-lynch.github.io/","affiliation":"Olytico","affiliationURL":"https://gary-lynch.github.io/","orcidID":""}],"publishedDate":"2021-01-01T00:00:00.000+00:00","citationText":"Lynch, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2026,174 +2037,279 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
-<!--radix_placeholder_article_listing-->
-
-
-<script type="application/javascript">
-
-function init_posts_list() {
-
-  function load_image(img) {
-    var src = $(img).attr('data-src');
-    if (src) {
-      $(img).attr('src', src);
-      $(img).load(function() {
-        img.removeAttribute('data-src');
-      });
-    }
-  }
-
-  function set_posts_visible(posts, visible) {
-    if (visible) {
-
-      // show bottom border by default
-      $(posts).removeClass('post-preview-last');
-
-      // apply limits if need be
-      var max_posts = 25;
-      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
-      if (apply_limits && posts.length > max_posts) {
-        posts = $(posts).slice(0, max_posts);
-      } else {
-        $('.posts-more a').addClass('hidden');
-      }
-
-      // apply last style
-      $(posts.slice(-1)[0]).addClass('post-preview-last');
-
-      $(posts).removeClass('hidden');
-      $(posts).find('img[data-src]').each(function(i, img) {
-        load_image(img);
-      });
-    } else {
-      $(posts).addClass('hidden');
-    }
-  }
-
-  function apply_hash_filter() {
-
-    // clear active state
-    $('.categories .active').removeClass('active');
-
-    // mark all posts invisible to start
-    set_posts_visible($('.posts-list').children('a'), false);
-
-    // if we have a hash filter
-    if (window.location.hash && window.location.hash.startsWith("#category:")) {
-
-      // mark posts that match the category visible
-      var page_category = window.location.hash.replace(/^#category:/, "");
-      var posts = $('.post-metadata').map(function(idx, script) {
-        var metadata = $.parseJSON($(script).html());
-        var post = null;
-        $.each(metadata.categories, function(idx, category) {
-          category = category.replace(/ /g,"_");
-          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
-            post = $(script).parent().get();
-            return false;
-          }
-        });
-        return post;
-      });
-      set_posts_visible(posts, true);
-
-      // mark the hash active
-      $('.categories li>a[href="' + window.location.hash + '"]').addClass('active');
-
-      // update the list_caption
-      var list_caption = $('.posts-list-caption');
-      var caption = (page_category || '').toLowerCase() === "articles"
-        ? list_caption.attr('data-caption')
-        : ('Category: ' + page_category.replace(/_/g," "));
-      list_caption.text(caption);
-
-    } else {
-
-      // no hash filter, make all posts visible (subject to max display)
-      set_posts_visible($('.posts-list').children(), true);
-
-      // reset list caption
-      var list_caption = $('.posts-list-caption');
-      list_caption.text(list_caption.attr('data-caption'));
-
-
-    }
-  }
-
-  // more articles
-  function apply_post_limits(apply) {
-    if (apply) {
-      $('.posts-container').addClass('posts-apply-limit');
-      $('.posts-more a').removeClass('hidden');
-    } else {
-      $('.posts-container').removeClass('posts-apply-limit');
-      $('.posts-more a').addClass('hidden');
-    }
-  }
-
-  // click handling for tags
-  $('.dt-tag').click(function(ev) {
-    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
-    return false;
-  })
-
-  // hash filter handling
-  apply_hash_filter();
-  $(window).on('hashchange',function() {
-    apply_post_limits(true);
-    apply_hash_filter();
-  });
-
-  // more articles link
-  $('.posts-more a').click(function(e) {
-    e.preventDefault();
-    apply_post_limits(false);
-    apply_hash_filter();
-    return false;
-  });
-
-}
-
-</script>
-
-
-
-<div class="posts-container posts-apply-limit l-page">
-<div class="posts-list">
-<h1 class="posts-list-caption" data-caption="My Website1">My Website1</h1>
-<a href="posts/2021-01-06-2020-reading-stats/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Jan. 6, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Gary Lynch</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2021-01-06-2020-reading-stats/2020-reading-stats_files/figure-html5/casadsars-1.png"/>
-</div>
-<div class="description">
-<h2>What I read in 2020: My ratings versus Goodreads</h2>
-<div class="dt-tags"></div>
-<p>How well do my book ratings compare to the Goodreads community ratings?</p>
-</div>
-</a>
-</div>
-<div class="posts-more">
-<a href="#">More articles &raquo;</a>
-</div>
-</div>
-<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>My Website1</h1>
+<h1>What I read in 2020: My ratings versus Goodreads</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Welcome to the website. I hope you enjoy it!</p></p>
+<p><p>How well do my book ratings compare to the Goodreads community ratings?</p></p>
 </div>
 
+<div class="d-byline">
+  Gary Lynch <a href="https://gary-lynch.github.io/" class="uri">https://gary-lynch.github.io/</a> (Olytico)<a href="https://gary-lynch.github.io/" class="uri">https://gary-lynch.github.io/</a>
+  
+<br/>01-01-2021
+</div>
 
 <div class="d-article">
+<h2 id="introduction">Introduction</h2>
+<p>2020 ended up being a uniquely good year for reading (at least for me). Multiple lockdown left me with lots of reading time and for the first time I kept track of what I read during the year.</p>
+<p>I thought it would be interesting to share some of what I tracked by answering a couple of questions. Mainly, I want to see how my ratings compare to the average reader (for this, I’m using Goodreads average review). I don’t use the site myself, but its a great proxy for the general consensus on a book. The questions I’d like to answer are as follows:</p>
+<ul>
+<li>How did my ratings compare with Goodreads average ratings?</li>
+<li>What books did I like more than Goodreads readers?</li>
+<li>What books did Goodreads readers like more than me?</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<h2 id="how-do-my-ratings-stack-up-against-goodreads">How do my ratings stack up against Goodreads?</h2>
+<p>The below graph represents the 40 books I read in 2020. Each point relates to one book, with the horizontal axis showing the Goodreads average rating and the vertical axis showing my rating. I’ve added a line to highlight the points where my rating matches the Goodreads rating (Note: You can hover over any point to see the book it relates to).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div id="htmlwidget-794d8d7cc773f8da96b3" style="width:624px;height:384px;" class="rbokeh html-widget"></div>
+<script type="application/json" data-for="htmlwidget-794d8d7cc773f8da96b3">{"x":{"elementid":"3f143935250cfec40bb35b92fecf29b9","modeltype":"Plot","modelid":"89bbfdbdd360c4812ef45811ca0a325e","docid":"9207a4539f713b1438c7be7da93cb058","docs_json":{"9207a4539f713b1438c7be7da93cb058":{"version":"0.12.5","title":"Bokeh Figure","roots":{"root_ids":["89bbfdbdd360c4812ef45811ca0a325e"],"references":[{"type":"Plot","id":"89bbfdbdd360c4812ef45811ca0a325e","attributes":{"id":"89bbfdbdd360c4812ef45811ca0a325e","sizing_mode":"scale_both","x_range":{"type":"Range1d","id":"5a4fc3d24acb3405661160d70c5cd54f"},"y_range":{"type":"Range1d","id":"64e1972759eb166f4eb920c8d4261b1b"},"left":[{"type":"LinearAxis","id":"5b13a1b5143ed7ff7914ef4f7c084c3f"}],"below":[{"type":"LinearAxis","id":"34d995c71740bd1f0715a4ffe0b97f85"}],"right":[],"above":[],"renderers":[{"type":"GlyphRenderer","id":"cef4de20924a591ec7b83399b9e6b5c4"},{"type":"GlyphRenderer","id":"ff9be60a8775206e10026bea6a39edd5"},{"type":"GlyphRenderer","id":"b87a2f8cbb026ef2842b81410f40450f"},{"type":"GlyphRenderer","id":"0f2ea46108ceca5b02fa5a40da48a98e"},{"type":"GlyphRenderer","id":"f32ce5ad0c44e2d5a21e3eeb117d90fc"},{"type":"Legend","id":"a2496ca1896a199f6c24d3968779bb08"},{"type":"LinearAxis","id":"34d995c71740bd1f0715a4ffe0b97f85"},{"type":"Grid","id":"b337893b4000efd0c45db305ba8ea5ff"},{"type":"LinearAxis","id":"5b13a1b5143ed7ff7914ef4f7c084c3f"},{"type":"Grid","id":"b51a7331337d3ca63b833040a0c4a07d"}],"extra_y_ranges":{},"extra_x_ranges":{},"tags":[],"plot_width":1000,"min_border_left":4,"min_border_right":4,"min_border_top":4,"min_border_bottom":4,"lod_threshold":null,"toolbar":{"type":"Toolbar","id":"617d43fa7cd099bc622bc415a2265492"},"tool_events":{"type":"ToolEvents","id":"149935011ce9f2fa0b45dd8f2218825f"}},"subtype":"Figure"},{"type":"Toolbar","id":"617d43fa7cd099bc622bc415a2265492","attributes":{"id":"617d43fa7cd099bc622bc415a2265492","tags":[],"active_drag":"auto","active_scroll":"auto","active_tap":"auto","tools":[{"type":"HoverTool","id":"c12e2c77d2d0e875c6059ef60c0b34a7"}],"logo":null}},{"type":"ToolEvents","id":"149935011ce9f2fa0b45dd8f2218825f","attributes":{"id":"149935011ce9f2fa0b45dd8f2218825f","tags":[]},"geometries":[]},{"type":"HoverTool","id":"c12e2c77d2d0e875c6059ef60c0b34a7","attributes":{"id":"c12e2c77d2d0e875c6059ef60c0b34a7","tags":[],"plot":{"type":"Plot","id":"89bbfdbdd360c4812ef45811ca0a325e","subtype":"Figure"},"renderers":[{"type":"GlyphRenderer","id":"cef4de20924a591ec7b83399b9e6b5c4"}],"names":[],"anchor":"center","attachment":"horizontal","line_policy":"prev","mode":"mouse","point_policy":"snap_to_data","tooltips":[["Title","@hover_col_1"],["Author","@hover_col_2"]]}},{"type":"ColumnDataSource","id":"d4cf0393144b7e0972c50d7231a93042","attributes":{"id":"d4cf0393144b7e0972c50d7231a93042","tags":[],"column_names":["x","y","line_color","fill_color","hover_col_1","hover_col_2"],"selected":[],"data":{"x":[3.8,3.7,3.9,4.2,3.8,3.4,4.1,2.3,3.7,3.7,3.6,4,4.1,4.1,4,4.1,4.4,3.8,4,4.1,4,4,3.8,4.2,4.2,4,3.8,4.4,4.2,3.6,4.4,4.4,4.1,4.5,3.8,4,4,3.9,3.4,4.1],"y":[4.9,4.4,4.5,4.7,4.3,3.9,4.5,2.7,4.1,4,3.9,4.2,4.2,4.1,4,4,4.3,3.6,3.8,3.8,3.7,3.7,3.5,3.9,3.9,3.6,3.4,4,3.8,3.1,3.9,3.8,3.4,3.8,3,3.8,2.9,2.6,2,2.4],"line_color":["#1F77B4","#1F77B4","#1F77B4","#1F77B4","#1F77B4","#1F77B4","#1F77B4","#1F77B4","#1F77B4","#1F77B4","#1F77B4","#1F77B4","#FF7F0E","#1F77B4","#1F77B4","#FF7F0E","#FF7F0E","#1F77B4","#1F77B4","#FF7F0E","#1F77B4","#1F77B4","#1F77B4","#1F77B4","#FF7F0E","#2CA02C","#1F77B4","#FF7F0E","#FF7F0E","#1F77B4","#FF7F0E","#FF7F0E","#1F77B4","#FF7F0E","#1F77B4","#FF7F0E","#1F77B4","#1F77B4","#1F77B4","#1F77B4"],"fill_color":["#1F77B4","#1F77B4","#1F77B4","#1F77B4","#1F77B4","#1F77B4","#1F77B4","#1F77B4","#1F77B4","#1F77B4","#1F77B4","#1F77B4","#FF7F0E","#1F77B4","#1F77B4","#FF7F0E","#FF7F0E","#1F77B4","#1F77B4","#FF7F0E","#1F77B4","#1F77B4","#1F77B4","#1F77B4","#FF7F0E","#2CA02C","#1F77B4","#FF7F0E","#FF7F0E","#1F77B4","#FF7F0E","#FF7F0E","#1F77B4","#FF7F0E","#1F77B4","#FF7F0E","#1F77B4","#1F77B4","#1F77B4","#1F77B4"],"hover_col_1":["The Memory Police                       ","If Cats Disappeared From The World      ","Normal People                           ","The Color Purple                        ","Frankenstein                            ","Hot Milk                                ","Jane Eyre                               ","In a Glass Darkly                       ","Convenience Store Woman                 ","A Complicated Kindness                  ","Milkman                                 ","The Outsider                            ","Dopesick                                ","Do Androids Dream of Electric Sheep?    ","A Wizard of Earthsea                    ","Climate Justice                         ","Man's Search for Meaning                ","The Perils of Perception                ","Dark Tales                              ","Predictably Irrational                  ","Animal Farm                             ","Clockwork Orange                        ","The Inugami Curse                       ","The Testaments                          ","Outliers                                ","If All the World and Love Were Young    ","Hagseed                                 ","This Is Going to Hurt                   ","12 Years a Slave                        ","2 Be or Not 2 Be                        ","Invisible Women                         ","Why We Sleep                            ","Dutch House                             ","Becoming                                ","Sputnik Sweetheart                      ","No One is Too Small to Make a Difference","When All Is Said                        ","The Cuckoo's Calling                    ","Freedom                                 ","Little Fires Everywhere                 "],"hover_col_2":["Yoko Ogawa             ","Genki Kawamura         ","Sally Rooney           ","Alice Walker           ","Mary Shelley           ","Deborah Levy           ","Charlotte Bronte       ","Sheridan Le Fanu       ","Sayaka Murata          ","Miriam Toews           ","Anna Burns             ","Albert Camus           ","Beth Macy              ","Philip K. Dick         ","Ursula le Guin         ","Mary Robinson          ","Victor Frankl          ","Bobby Duffy            ","Shirely Jackson        ","Daniel Ariely          ","George Orwell          ","Anthony Burgess        ","Seishi Yokomizo        ","Margaret Atwood        ","Malcolm Gladwell       ","Stephen Sexton         ","Margaret Atwood        ","Adam Kay               ","Solomon Northup        ","Kurt Vonegut           "," Caroline Criado Perez ","Matthew Walker         ","Anne Patchett          ","Michelle Obama         ","Haruki Murakami        ","Greta Thunberg         ","Anne Griffin           ","Robert Galbraith       ","Margaret Atwood        ","Celeste Ng             "]}}},{"type":"Circle","id":"9cc514059601d66edfd965a31ad4d0a5","attributes":{"id":"9cc514059601d66edfd965a31ad4d0a5","tags":[],"size":{"units":"screen","value":10},"line_alpha":{"units":"data","value":1},"fill_alpha":{"units":"data","value":0.5},"x":{"units":"data","field":"x"},"y":{"units":"data","field":"y"},"line_color":{"units":"data","field":"line_color"},"fill_color":{"units":"data","field":"fill_color"}}},{"type":"Circle","id":"b2a683282744c6fc4119d005cd0460e7","attributes":{"id":"b2a683282744c6fc4119d005cd0460e7","tags":[],"size":{"units":"screen","value":10},"line_alpha":{"units":"data","value":1},"fill_alpha":{"units":"data","value":0.5},"x":{"units":"data","field":"x"},"y":{"units":"data","field":"y"},"line_color":{"units":"data","value":"#e1e1e1"},"fill_color":{"units":"data","value":"#e1e1e1"}}},{"type":"Circle","id":"8964e5ca8f7890ef4fcea205e3e2fba5","attributes":{"id":"8964e5ca8f7890ef4fcea205e3e2fba5","tags":[],"size":{"units":"screen","value":10},"line_alpha":{"units":"data","value":1},"fill_alpha":{"units":"data","value":1},"x":{"units":"data","field":"x"},"y":{"units":"data","field":"y"},"line_color":{"units":"data","field":"line_color"},"fill_color":{"units":"data","field":"fill_color"}}},{"type":"GlyphRenderer","id":"cef4de20924a591ec7b83399b9e6b5c4","attributes":{"id":"cef4de20924a591ec7b83399b9e6b5c4","tags":[],"selection_glyph":null,"nonselection_glyph":{"type":"Circle","id":"b2a683282744c6fc4119d005cd0460e7"},"hover_glyph":{"type":"Circle","id":"8964e5ca8f7890ef4fcea205e3e2fba5"},"name":null,"data_source":{"type":"ColumnDataSource","id":"d4cf0393144b7e0972c50d7231a93042"},"glyph":{"type":"Circle","id":"9cc514059601d66edfd965a31ad4d0a5"}}},{"type":"ColumnDataSource","id":"92d6971b3613eca276110cf31117da5c","attributes":{"id":"92d6971b3613eca276110cf31117da5c","tags":[],"column_names":["x0","y0","x1","y1"],"selected":[],"data":{"x0":[0],"y0":[0],"x1":[1],"y1":[1]}}},{"type":"Segment","id":"4b44f7c50f6795798f7cf0dfd7492ea7","attributes":{"id":"4b44f7c50f6795798f7cf0dfd7492ea7","tags":[],"line_color":{"units":"data","value":"black"},"line_width":{"units":"data","value":1},"x0":{"units":"data","field":"x0"},"y0":{"units":"data","field":"y0"},"x1":{"units":"data","field":"x1"},"y1":{"units":"data","field":"y1"}}},{"type":"Segment","id":"e52cc07bbc798cada32d226ac4236d3b","attributes":{"id":"e52cc07bbc798cada32d226ac4236d3b","tags":[],"line_color":{"units":"data","value":"#e1e1e1"},"line_width":{"units":"data","value":1},"x0":{"units":"data","field":"x0"},"y0":{"units":"data","field":"y0"},"x1":{"units":"data","field":"x1"},"y1":{"units":"data","field":"y1"}}},{"type":"Segment","id":"7f856152e86118a36b618e05f2d52086","attributes":{"id":"7f856152e86118a36b618e05f2d52086","tags":[],"line_color":{"units":"data","value":"black"},"line_width":{"units":"data","value":1},"x0":{"units":"data","field":"x0"},"y0":{"units":"data","field":"y0"},"x1":{"units":"data","field":"x1"},"y1":{"units":"data","field":"y1"}}},{"type":"GlyphRenderer","id":"ff9be60a8775206e10026bea6a39edd5","attributes":{"id":"ff9be60a8775206e10026bea6a39edd5","tags":[],"selection_glyph":null,"nonselection_glyph":{"type":"Segment","id":"e52cc07bbc798cada32d226ac4236d3b"},"hover_glyph":{"type":"Segment","id":"7f856152e86118a36b618e05f2d52086"},"name":null,"data_source":{"type":"ColumnDataSource","id":"eff1d1fc6f85bd6ec1f66ef5a8dee3cd"},"glyph":{"type":"Segment","id":"4b44f7c50f6795798f7cf0dfd7492ea7"}}},{"type":"ColumnDataSource","id":"4e51bef7eb0040decbefa8e1f26d0401","attributes":{"id":"4e51bef7eb0040decbefa8e1f26d0401","tags":[],"column_names":["x","y"],"selected":[],"data":{"x":[null,null],"y":[null,null]}}},{"type":"Circle","id":"9ba0c7616b766348592470fa93f8d0bc","attributes":{"id":"9ba0c7616b766348592470fa93f8d0bc","tags":[],"size":{"units":"screen","value":0},"line_alpha":{"units":"data","value":1},"fill_alpha":{"units":"data","value":0.5},"line_color":{"units":"data","value":"#1F77B4"},"fill_color":{"units":"data","value":"#1F77B4"},"x":{"units":"data","field":"x"},"y":{"units":"data","field":"y"}}},{"type":"Circle","id":"4c175450de035dca4ef0b76ecaeea9cf","attributes":{"id":"4c175450de035dca4ef0b76ecaeea9cf","tags":[],"size":{"units":"screen","value":0},"line_alpha":{"units":"data","value":1},"fill_alpha":{"units":"data","value":0.5},"line_color":{"units":"data","value":"#e1e1e1"},"fill_color":{"units":"data","value":"#e1e1e1"},"x":{"units":"data","field":"x"},"y":{"units":"data","field":"y"}}},{"type":"Circle","id":"125c445b54ccd8c5a05209b6d8cb2511","attributes":{"id":"125c445b54ccd8c5a05209b6d8cb2511","tags":[],"size":{"units":"screen","value":0},"line_alpha":{"units":"data","value":1},"fill_alpha":{"units":"data","value":1},"line_color":{"units":"data","value":"#1F77B4"},"fill_color":{"units":"data","value":"#1F77B4"},"x":{"units":"data","field":"x"},"y":{"units":"data","field":"y"}}},{"type":"GlyphRenderer","id":"b87a2f8cbb026ef2842b81410f40450f","attributes":{"id":"b87a2f8cbb026ef2842b81410f40450f","tags":[],"selection_glyph":null,"nonselection_glyph":{"type":"Circle","id":"4c175450de035dca4ef0b76ecaeea9cf"},"hover_glyph":{"type":"Circle","id":"125c445b54ccd8c5a05209b6d8cb2511"},"name":null,"data_source":{"type":"ColumnDataSource","id":"4e51bef7eb0040decbefa8e1f26d0401"},"glyph":{"type":"Circle","id":"9ba0c7616b766348592470fa93f8d0bc"}}},{"type":"Circle","id":"4287c4011aaaa06089ddc2cae0a088fe","attributes":{"id":"4287c4011aaaa06089ddc2cae0a088fe","tags":[],"size":{"units":"screen","value":0},"line_alpha":{"units":"data","value":1},"fill_alpha":{"units":"data","value":0.5},"line_color":{"units":"data","value":"#FF7F0E"},"fill_color":{"units":"data","value":"#FF7F0E"},"x":{"units":"data","field":"x"},"y":{"units":"data","field":"y"}}},{"type":"Circle","id":"2dde6048e528a7c67d592c545df1eded","attributes":{"id":"2dde6048e528a7c67d592c545df1eded","tags":[],"size":{"units":"screen","value":0},"line_alpha":{"units":"data","value":1},"fill_alpha":{"units":"data","value":0.5},"line_color":{"units":"data","value":"#e1e1e1"},"fill_color":{"units":"data","value":"#e1e1e1"},"x":{"units":"data","field":"x"},"y":{"units":"data","field":"y"}}},{"type":"Circle","id":"64a9549372d5f1b9321df75cc552c457","attributes":{"id":"64a9549372d5f1b9321df75cc552c457","tags":[],"size":{"units":"screen","value":0},"line_alpha":{"units":"data","value":1},"fill_alpha":{"units":"data","value":1},"line_color":{"units":"data","value":"#FF7F0E"},"fill_color":{"units":"data","value":"#FF7F0E"},"x":{"units":"data","field":"x"},"y":{"units":"data","field":"y"}}},{"type":"GlyphRenderer","id":"0f2ea46108ceca5b02fa5a40da48a98e","attributes":{"id":"0f2ea46108ceca5b02fa5a40da48a98e","tags":[],"selection_glyph":null,"nonselection_glyph":{"type":"Circle","id":"2dde6048e528a7c67d592c545df1eded"},"hover_glyph":{"type":"Circle","id":"64a9549372d5f1b9321df75cc552c457"},"name":null,"data_source":{"type":"ColumnDataSource","id":"4e51bef7eb0040decbefa8e1f26d0401"},"glyph":{"type":"Circle","id":"4287c4011aaaa06089ddc2cae0a088fe"}}},{"type":"Circle","id":"c58d86a2c8db42484e1431823958e6f2","attributes":{"id":"c58d86a2c8db42484e1431823958e6f2","tags":[],"size":{"units":"screen","value":0},"line_alpha":{"units":"data","value":1},"fill_alpha":{"units":"data","value":0.5},"line_color":{"units":"data","value":"#2CA02C"},"fill_color":{"units":"data","value":"#2CA02C"},"x":{"units":"data","field":"x"},"y":{"units":"data","field":"y"}}},{"type":"Circle","id":"4f1768347d8886149dfd0e71e62d2833","attributes":{"id":"4f1768347d8886149dfd0e71e62d2833","tags":[],"size":{"units":"screen","value":0},"line_alpha":{"units":"data","value":1},"fill_alpha":{"units":"data","value":0.5},"line_color":{"units":"data","value":"#e1e1e1"},"fill_color":{"units":"data","value":"#e1e1e1"},"x":{"units":"data","field":"x"},"y":{"units":"data","field":"y"}}},{"type":"Circle","id":"cb74ab699b9cfd1a552d25b54ddf92a3","attributes":{"id":"cb74ab699b9cfd1a552d25b54ddf92a3","tags":[],"size":{"units":"screen","value":0},"line_alpha":{"units":"data","value":1},"fill_alpha":{"units":"data","value":1},"line_color":{"units":"data","value":"#2CA02C"},"fill_color":{"units":"data","value":"#2CA02C"},"x":{"units":"data","field":"x"},"y":{"units":"data","field":"y"}}},{"type":"GlyphRenderer","id":"f32ce5ad0c44e2d5a21e3eeb117d90fc","attributes":{"id":"f32ce5ad0c44e2d5a21e3eeb117d90fc","tags":[],"selection_glyph":null,"nonselection_glyph":{"type":"Circle","id":"4f1768347d8886149dfd0e71e62d2833"},"hover_glyph":{"type":"Circle","id":"cb74ab699b9cfd1a552d25b54ddf92a3"},"name":null,"data_source":{"type":"ColumnDataSource","id":"4e51bef7eb0040decbefa8e1f26d0401"},"glyph":{"type":"Circle","id":"c58d86a2c8db42484e1431823958e6f2"}}},{"type":"LegendItem","id":"811200f0715d53f14bd170b570dd1b73","attributes":{"id":"811200f0715d53f14bd170b570dd1b73","tags":[],"label":{"value":"Type"},"renderers":[]}},{"type":"LegendItem","id":"0295c371da56aaa098e627af9deb1705","attributes":{"id":"0295c371da56aaa098e627af9deb1705","tags":[],"label":{"value":" Fiction"},"renderers":[{"type":"GlyphRenderer","id":"b87a2f8cbb026ef2842b81410f40450f"}]}},{"type":"LegendItem","id":"285e40c09b36c323f6d9150c8f255567","attributes":{"id":"285e40c09b36c323f6d9150c8f255567","tags":[],"label":{"value":" Non-Fiction"},"renderers":[{"type":"GlyphRenderer","id":"0f2ea46108ceca5b02fa5a40da48a98e"}]}},{"type":"LegendItem","id":"a7648d2fa572fcc6662e0bf5933271c2","attributes":{"id":"a7648d2fa572fcc6662e0bf5933271c2","tags":[],"label":{"value":" Poetry"},"renderers":[{"type":"GlyphRenderer","id":"f32ce5ad0c44e2d5a21e3eeb117d90fc"}]}},{"type":"Legend","id":"a2496ca1896a199f6c24d3968779bb08","attributes":{"id":"a2496ca1896a199f6c24d3968779bb08","tags":[],"plot":{"type":"Plot","id":"89bbfdbdd360c4812ef45811ca0a325e","subtype":"Figure"},"items":[{"type":"LegendItem","id":"811200f0715d53f14bd170b570dd1b73"},{"type":"LegendItem","id":"0295c371da56aaa098e627af9deb1705"},{"type":"LegendItem","id":"285e40c09b36c323f6d9150c8f255567"},{"type":"LegendItem","id":"a7648d2fa572fcc6662e0bf5933271c2"}],"location":"top_left"}},{"type":"Range1d","id":"5a4fc3d24acb3405661160d70c5cd54f","attributes":{"id":"5a4fc3d24acb3405661160d70c5cd54f","tags":[],"start":2.146,"end":4.654}},{"type":"Range1d","id":"64e1972759eb166f4eb920c8d4261b1b","attributes":{"id":"64e1972759eb166f4eb920c8d4261b1b","tags":[],"start":1.797,"end":5.103}},{"type":"LinearAxis","id":"34d995c71740bd1f0715a4ffe0b97f85","attributes":{"id":"34d995c71740bd1f0715a4ffe0b97f85","tags":[],"plot":{"type":"Plot","id":"89bbfdbdd360c4812ef45811ca0a325e","subtype":"Figure"},"axis_label":"Good Reads Rating","formatter":{"type":"BasicTickFormatter","id":"8ed9fa088fd81b54b76be04396093219"},"ticker":{"type":"BasicTicker","id":"0418dac964c3f55cebd482bfd27d9db7"},"visible":true,"axis_label_text_font_size":"12pt"}},{"type":"BasicTickFormatter","id":"8ed9fa088fd81b54b76be04396093219","attributes":{"id":"8ed9fa088fd81b54b76be04396093219","tags":[]}},{"type":"BasicTicker","id":"0418dac964c3f55cebd482bfd27d9db7","attributes":{"id":"0418dac964c3f55cebd482bfd27d9db7","tags":[],"num_minor_ticks":5}},{"type":"Grid","id":"b337893b4000efd0c45db305ba8ea5ff","attributes":{"id":"b337893b4000efd0c45db305ba8ea5ff","tags":[],"dimension":0,"plot":{"type":"Plot","id":"89bbfdbdd360c4812ef45811ca0a325e","subtype":"Figure"},"ticker":{"type":"BasicTicker","id":"0418dac964c3f55cebd482bfd27d9db7"}}},{"type":"LinearAxis","id":"5b13a1b5143ed7ff7914ef4f7c084c3f","attributes":{"id":"5b13a1b5143ed7ff7914ef4f7c084c3f","tags":[],"plot":{"type":"Plot","id":"89bbfdbdd360c4812ef45811ca0a325e","subtype":"Figure"},"axis_label":"My Rating","formatter":{"type":"BasicTickFormatter","id":"bf491fc24956da2bacb479810daaa78f"},"ticker":{"type":"BasicTicker","id":"ab125d0ddfc1df35cbbc35070664f9ec"},"visible":true,"axis_label_text_font_size":"12pt"}},{"type":"BasicTickFormatter","id":"bf491fc24956da2bacb479810daaa78f","attributes":{"id":"bf491fc24956da2bacb479810daaa78f","tags":[]}},{"type":"BasicTicker","id":"ab125d0ddfc1df35cbbc35070664f9ec","attributes":{"id":"ab125d0ddfc1df35cbbc35070664f9ec","tags":[],"num_minor_ticks":5}},{"type":"Grid","id":"b51a7331337d3ca63b833040a0c4a07d","attributes":{"id":"b51a7331337d3ca63b833040a0c4a07d","tags":[],"dimension":1,"plot":{"type":"Plot","id":"89bbfdbdd360c4812ef45811ca0a325e","subtype":"Figure"},"ticker":{"type":"BasicTicker","id":"ab125d0ddfc1df35cbbc35070664f9ec"}}},{"type":"ColumnDataSource","id":"eff1d1fc6f85bd6ec1f66ef5a8dee3cd","attributes":{"id":"eff1d1fc6f85bd6ec1f66ef5a8dee3cd","tags":[],"column_names":["x0","y0","x1","y1"],"selected":[],"data":{"x0":[2.146],"y0":[2.146],"x1":[4.654],"y1":[4.654]}}}]}}},"debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+<p>As you can see, only 2 of 40 books had a matched rating. That said, most of the ratings were fairly close, with the majority within 0.5 of the other rating. There were a few notable exceptions, which I’ll go into more detail on below.</p>
+<p>I was surprised to see that nearly every non-fiction book I read was rated higher on Goodreads. I have a feeling this has more to do with Goodreads ratings than to do with me (did you notice that the majority of +4 star Goodreads reviewed books are non-fiction?). Maybe I just exclusively read great non-fiction?</p>
+<p>In the next section, we’ll look at the books with the greatest difference in ratings - starting with books I liked more than Goodreads.</p>
+<h2 id="books-i-liked-more-than-goodreads">Books I liked more than Goodreads</h2>
+<div class="layout-chunk" data-layout="l-body">
+<table class="table table-striped table-hover table-responsive" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Title
+</th>
+<th style="text-align:left;">
+Author
+</th>
+<th style="text-align:right;">
+My.Rating
+</th>
+<th style="text-align:right;">
+Good.Reads.Rating
+</th>
+<th style="text-align:right;">
+Difference
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+The Memory Police
+</td>
+<td style="text-align:left;">
+Yoko Ogawa
+</td>
+<td style="text-align:right;">
+4.9
+</td>
+<td style="text-align:right;">
+3.8
+</td>
+<td style="text-align:right;">
+1.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+If Cats Disappeared From The World
+</td>
+<td style="text-align:left;">
+Genki Kawamura
+</td>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:right;">
+3.7
+</td>
+<td style="text-align:right;">
+0.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Normal People
+</td>
+<td style="text-align:left;">
+Sally Rooney
+</td>
+<td style="text-align:right;">
+4.5
+</td>
+<td style="text-align:right;">
+3.9
+</td>
+<td style="text-align:right;">
+0.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+The Color Purple
+</td>
+<td style="text-align:left;">
+Alice Walker
+</td>
+<td style="text-align:right;">
+4.7
+</td>
+<td style="text-align:right;">
+4.2
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Frankenstein
+</td>
+<td style="text-align:left;">
+Mary Shelley
+</td>
+<td style="text-align:right;">
+4.3
+</td>
+<td style="text-align:right;">
+3.8
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>The Memory Police:</strong> This was hands down the best book I read in 2020, so I expected this to exceed the Goodreads rating. Definitely not a book for everyone, but a good pick if you enjoy allegorical fiction.</p>
+<p><strong>If Cats Disappeared from the World:</strong> A short read that packs an emotional punch. It starts quite lighthearted and slowly reveals itself to you. I was quite surprised that Goodreads readers didn’t like this more.</p>
+<p><strong>Normal People:</strong> The best-selling novel that is now a major television series. This hit very close to home for me, not least because its set in the university I attended. Worth reading for the culture impact alone - or as preparation for watching the Tv show.</p>
+<p><strong>The Color Purple:</strong> Alice Walker’s Pulitzer prize winning novel is a classic for a reason. This moved me more than anything else I read this this year. I found it remarkably relevant to current day issues for a novel from the 1980’s.</p>
+<p><strong>Frankenstein:</strong> Mary Shelley’s classic had a much lower Goodreads rating than I expected. A landmark novel that is very readable for something written over 200 years ago.</p>
+<h2 id="books-preferred-by-goodreads-readers">Books preferred by Goodreads readers</h2>
+<div class="layout-chunk" data-layout="l-body">
+<table class="table table-striped table-hover table-responsive" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Title
+</th>
+<th style="text-align:left;">
+Author
+</th>
+<th style="text-align:right;">
+My.Rating
+</th>
+<th style="text-align:right;">
+Good.Reads.Rating
+</th>
+<th style="text-align:right;">
+Difference
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Little Fires Everywhere
+</td>
+<td style="text-align:left;">
+Celeste Ng
+</td>
+<td style="text-align:right;">
+2.4
+</td>
+<td style="text-align:right;">
+4.1
+</td>
+<td style="text-align:right;">
+-1.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Freedom
+</td>
+<td style="text-align:left;">
+Margaret Atwood
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:right;">
+3.4
+</td>
+<td style="text-align:right;">
+-1.4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+The Cuckoo’s Calling
+</td>
+<td style="text-align:left;">
+Robert Galbraith
+</td>
+<td style="text-align:right;">
+2.6
+</td>
+<td style="text-align:right;">
+3.9
+</td>
+<td style="text-align:right;">
+-1.3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+When All Is Said
+</td>
+<td style="text-align:left;">
+Anne Griffin
+</td>
+<td style="text-align:right;">
+2.9
+</td>
+<td style="text-align:right;">
+4.0
+</td>
+<td style="text-align:right;">
+-1.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Sputnik Sweetheart
+</td>
+<td style="text-align:left;">
+Haruki Murakami
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+3.8
+</td>
+<td style="text-align:right;">
+-0.8
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Little Fires Everywhere:</strong> Another best-selling novel that is now a major television series. I think I may have had too high expectations for this. I didn’t hate this but the story just went in a direction story-wise that I didn’t enjoy.</p>
+<p><strong>Freedom:</strong> I didn’t realise when I bought this that it’s actual a collection of excerpts from other Atwood novels. Unfortunately, I had read most of these other novels before. Not an awful book, but I’d recommend just reading her actual novels instead.</p>
+<p><strong>The Cuckoo’s Calling:</strong> This is the first in a series of murder mystery novels from J.K. Rowling. I found it fine as a read, if a little long. Obviously Goodreads readers enjoyed it more than I did!</p>
+<p><strong>When All is Said:</strong> Anne Griffin does a great job capturing life in Ireland here. I enjoyed reading this, it was closer to a 3 than a 4 star for me.</p>
+<p><strong>Sputnik Sweetheart:</strong> I am a big Murakami fan. This was not my favorite of his, but it does have some beautiful description. If you’re interested in trying Murakami, I would probably start with something else (Norwegian Wood, Kafka on the Shore).</p>
+<h2 id="final-thoughts">Final thoughts</h2>
+<p>This was a fun little experiment in plotting my reading for 2020. As a bonus, I’ve included the number of books I read each month below. You can probably guess when college started based on how my reading fell off a cliff!</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="index_files/figure-html5/casadsars-1.png" width="624" /></p>
+</div>
+<p>If you’re interested in doing something similar to this, all the graphs were created in R Markdown. The first graph utilized the Rbokeh package and the tables use the Kable extra package. This blog was compiled using the distill package and is hosted on Github pages.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
