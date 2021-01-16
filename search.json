@@ -2,19 +2,18 @@
   "articles": [
     {
       "path": "about.html",
-      "title": "About this site",
-      "description": "Some additional details about the website",
+      "title": "About this blog",
+      "description": "This blog is a record of my personal data analysis and visualisation projects.",
       "author": [],
-      "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-01-06T22:09:01+00:00"
+      "contents": "\r\nIf you’d like to keep up to date with new blog posts, you can follow me on Twitter or LinkedIn.\r\nTwitter: https://twitter.com/GaryLynch94\r\nLinkedIn: https://www.linkedin.com/in/gary-lynch-b01864a0/\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-01-16T21:01:26+00:00"
     },
     {
       "path": "index.html",
-      "title": "My Website1",
-      "description": "Welcome to the website. I hope you enjoy it!\n",
+      "title": "Gary Lynch - Blog",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-01-06T23:35:58+00:00"
+      "last_modified": "2021-01-16T20:57:34+00:00"
     }
   ],
   "collections": ["posts/posts.json"]
