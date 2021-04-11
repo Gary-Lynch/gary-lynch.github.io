@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2021-04-11-european-population-interactive-visualisation/",
+    "title": "European population: Interactive visualisation",
+    "description": "Background visualisation for the Twitter #30DayChartChallenge.",
+    "author": [
+      {
+        "name": "Gary Lynch",
+        "url": "https://gary-lynch.github.io/"
+      }
+    ],
+    "date": "2021-04-11",
+    "categories": [],
+    "contents": "\r\nThis is the interactive version of a plot made for #30DayChartChallenge. The graph represens the relationship between country area (km^2) and population of European countries (excluding Russia).\r\n\r\npreserve766dc718c7e0570f\r\n\r\nIf you have any questions or would like to see the original graph, you can reach me on my Twitter account.\r\nDistill is a publication format for scientific and technical writing, native to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill.\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2021-04-11T23:43:17+01:00",
+    "input_file": "european-population-interactive-visualisation.utf8.md"
+  },
+  {
     "path": "posts/2021-01-27-game-of-the-year-nominees-what-got-rgaming-talking/",
     "title": "Game of the Year nominees - What got r/Gaming talking",
     "description": "Which of the Game of the Year nominees drove the most conversation on r/Gaming?",
