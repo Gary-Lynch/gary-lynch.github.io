@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2021-04-14-mapping-animal-sightings-in-ireland/",
+    "title": "Mapping animal sightings in Ireland",
+    "description": "A flourish map of animal sightings, 2016-2021.",
+    "author": [
+      {
+        "name": "Gary Lynch",
+        "url": "https://gary-lynch.github.io/"
+      }
+    ],
+    "date": "2021-04-14",
+    "categories": [],
+    "contents": "\r\nThe National Biodiversity Data Centre collates user submitted data on animal sightings. Users across Ireland have submitted over 9,000 sightings since 2016, including information such as location, species and date. Using Flourish, I’ve plotted these onto an interactive map of Ireland.\r\n\r\n\r\n\r\n\r\n\r\nIf you’re interested in submitting sightings to the National Biodiversity Data Centre - you can get started here: https://records.biodiversityireland.ie/start-recording\r\nDistill is a publication format for scientific and technical writing, native to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill.\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2021-04-14T23:56:33+01:00",
+    "input_file": "mapping-animal-sightings-in-ireland.utf8.md"
+  },
+  {
     "path": "posts/2021-04-11-european-population-interactive-visualisation/",
     "title": "European population: Interactive visualisation",
     "description": "Background visualisation for the Twitter #30DayChartChallenge.",

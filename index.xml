@@ -7,14 +7,22 @@
     <description>Data projects using R
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sat, 10 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Mapping animal sightings in Ireland</title>
+      <dc:creator>Gary Lynch</dc:creator>
+      <link>https://gary-lynch.github.io/posts/2021-04-14-mapping-animal-sightings-in-ireland</link>
+      <description>A flourish map of animal sightings, 2016-2021.</description>
+      <guid>https://gary-lynch.github.io/posts/2021-04-14-mapping-animal-sightings-in-ireland</guid>
+      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>European population: Interactive visualisation</title>
       <dc:creator>Gary Lynch</dc:creator>
       <link>https://gary-lynch.github.io/posts/2021-04-11-european-population-interactive-visualisation</link>
       <description>Background visualisation for the Twitter #30DayChartChallenge.</description>
       <guid>https://gary-lynch.github.io/posts/2021-04-11-european-population-interactive-visualisation</guid>
-      <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>Game of the Year nominees - What got r/Gaming talking</title>
